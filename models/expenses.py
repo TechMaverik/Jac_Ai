@@ -8,7 +8,7 @@ class ExpensesReq(BaseModel):
     """Expense request model
 
     Args:
-        to (str): To account
+        spent_to (str): To account
         source (str): From account
         expense_type(str): Expense type
         expense_amount(float): Expense amount
