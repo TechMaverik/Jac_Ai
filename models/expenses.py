@@ -15,6 +15,7 @@ class ExpensesReq(BaseModel):
         description(str): Expense description
         is_monthly_expense: Is monthly expense status
         is_consumer_bill: Is consumer bill status
+        Expenses:key
     """
 
     spent_to: str
@@ -24,3 +25,4 @@ class ExpensesReq(BaseModel):
     description: str
     is_monthly_expense: bool
     is_consumer_bill: bool
+    key: str
