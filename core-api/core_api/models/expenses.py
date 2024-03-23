@@ -19,8 +19,8 @@ class ExpensesReq(BaseModel):
     id: str
     account: Optional[str] = None
     description: Optional[str] = None
-    expense_amt: Optional[str] = None
+    expense_amt: Optional[int] = 0
     expense_type: Optional[str] = None
-    is_consumerbill: Optional[str] = None
-    is_monthlyexpese: Optional[str] = None
+    is_consumerbill: Optional[bool] = False
+    is_monthlyexpese: Optional[bool] = False
     spend_to: Optional[str] = None

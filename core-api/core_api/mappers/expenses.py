@@ -1,9 +1,11 @@
+"""expenses.py"""
+
 import boto3
 from core_api.models.expenses import ExpensesReq
 
 
-def put_to_expenses(expensesReq: ExpensesReq) -> bool:
-    """Mapper to input expenses to AWS
+def put_to_expenses_mapper(expensesReq: ExpensesReq) -> bool:
+    """Mapper to put expenses to AWS
 
     Returns:
         bool: status
