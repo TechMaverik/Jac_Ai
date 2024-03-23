@@ -2,3 +2,4 @@
 __pycache__
 aws
 awscliv2.zip
+poetry.lock
