@@ -1,6 +1,5 @@
 "expenses.py"
 from pydantic import BaseModel, Field
-from typing import Optional
 
 
 class ExpensesReq(BaseModel):
@@ -16,11 +15,11 @@ class ExpensesReq(BaseModel):
     spend_to: str Amount spent to
     """
 
-    id: str
-    account: Optional[str] = None
-    description: Optional[str] = None
-    expense_amt: Optional[int] = 0
-    expense_type: Optional[str] = None
-    is_consumerbill: Optional[bool] = False
-    is_monthlyexpese: Optional[bool] = False
-    spend_to: Optional[str] = None
+    id: int
+    account: str = Field(None)
+    description: str = Field(None)
+    expense_amt: int = Field(0)
+    expense_type: str = Field(None)
+    is_consumerbill: bool = Field(False)
+    is_monthlyexpese: bool = Field(False)
+    spend_to: str = Field(None)

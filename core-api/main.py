@@ -3,8 +3,6 @@
 import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from starlette.requests import Request
-from starlette.responses import JSONResponse
 from core_api.routers import expenses
 
 app = FastAPI()

@@ -20,7 +20,10 @@ def put_to_expenses_mapper(expensesReq: ExpensesReq) -> bool:
         "description": expensesReq.description,
         "is_monthly_expense": expensesReq.is_monthlyexpese,
         "is_consumer_bill": expensesReq.is_consumerbill,
-        "Expenses": expensesReq.id,
+        "ID": expensesReq.id,
     }
     status = dynamoTable.put_item(Item=item)
-    return status
+    if status["ResponseMetadata"]["HTTPStatusCode"] == 200:
+        return True
+    else:
+        return False
