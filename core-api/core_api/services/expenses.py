@@ -1,5 +1,32 @@
 from core_api.mappers.expenses import put_to_expenses_mapper
 from core_api.models.expenses import ExpensesReq
+from core_api.configurations import menu_config
+
+
+def is_monthly_expense(expense_type: str) -> bool:
+    """Is monthly expense
+
+    Returns:
+        bool: status
+    """
+    for item in menu_config.monthly_expense:
+        if item == expense_type:
+            return True
+    else:
+        return False
+
+
+def is_consumer_bill(expense_type: str) -> bool:
+    """Is consumer bill
+
+    Returns:
+        bool: status
+    """
+    for item in menu_config.consumer_bill:
+        if item == expense_type:
+            return True
+    else:
+        return False
 
 
 def put_to_expenses_service(expensesReq: ExpensesReq) -> bool:
@@ -8,4 +35,15 @@ def put_to_expenses_service(expensesReq: ExpensesReq) -> bool:
     Returns:
         bool: status
     """
-    return put_to_expenses_mapper(expensesReq)
+    item = {
+        "spent_to": expensesReq.spend_to,
+        "account": expensesReq.account,
+        "expense_type": expensesReq.expense_type,
+        "expense_amount": expensesReq.expense_amt,
+        "description": expensesReq.description,
+        "is_monthly_expense": is_monthly_expense(expensesReq.expense_type),
+        "is_consumer_bill": is_consumer_bill(expensesReq.expense_type),
+        "ID": expensesReq.id,
+    }
+    print(item)
+    return put_to_expenses_mapper(item)
