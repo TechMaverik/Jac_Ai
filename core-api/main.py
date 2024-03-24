@@ -1,8 +1,9 @@
+"main.py"
+
 import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from starlette.requests import Request
-from starlette.responses import JSONResponse
+from core_api.routers import expenses
 
 app = FastAPI()
 app.add_middleware(
@@ -13,4 +14,13 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# app.include_router(api.router)
+app.include_router(expenses.router)
+
+
+if __name__ == "__main__":
+    uvicorn.run(
+        "__main__:app",
+        host="127.0.0.1",
+        port=8000,
+        reload=True,
+    )
