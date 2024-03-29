@@ -1,6 +1,12 @@
-from core_api.mappers.expenses import put_to_expenses_mapper
+import random
+from core_api.mappers import expenses as expenses_mappers
 from core_api.models.expenses import ExpensesReq
 from core_api.configurations import menu_config
+
+
+def create_id() -> int:
+    generated_id = random.randint(1, 999999999999)
+    return generated_id
 
 
 def is_monthly_expense(expense_type: str) -> bool:
@@ -43,7 +49,17 @@ def put_to_expenses_service(expensesReq: ExpensesReq) -> bool:
         "description": expensesReq.description,
         "is_monthly_expense": is_monthly_expense(expensesReq.expense_type),
         "is_consumer_bill": is_consumer_bill(expensesReq.expense_type),
-        "ID": expensesReq.id,
+        "ID": create_id(),
     }
-    print(item)
-    return put_to_expenses_mapper(item)
+    return expenses_mappers.put_to_expenses_mapper(item)
+
+
+def get_expenses_types() -> dict:
+    """Service to get expenses types
+
+    Returns:
+        dict: expenses_types
+    """
+
+    expenses_types = menu_config.expense_type
+    return expenses_types

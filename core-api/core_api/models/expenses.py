@@ -15,7 +15,6 @@ class ExpensesReq(BaseModel):
     spend_to: str Amount spent to
     """
 
-    id: int
     account: str = Field(None)
     description: str = Field(None)
     expense_amt: int = Field(0)
