@@ -10,4 +10,10 @@
 
 ## To start the server
 * python main.py
+## API Details
+All the api details can be found in swagger.
+Swagger can be accessed by using
+<code>
+localhost:8000/docs
+</code>
 
