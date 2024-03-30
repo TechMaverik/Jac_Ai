@@ -17,10 +17,10 @@ def put_to_expenses_routers(expensesReq: ExpensesReq) -> bool:
 
 
 @router.get("/types")
-def get_expenses_types() -> dict:
+def get_expenses_types() -> list:
     """Router to return expense types
 
     Returns:
-        dict: expense_types
+        list: expense_types
     """
     return expense_handlers.get_expenses_types()
