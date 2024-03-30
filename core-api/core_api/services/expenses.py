@@ -54,12 +54,12 @@ def put_to_expenses_service(expensesReq: ExpensesReq) -> bool:
     return expenses_mappers.put_to_expenses_mapper(item)
 
 
-def get_expenses_types() -> dict:
+def get_expenses_types() -> list:
     """Service to get expenses types
 
     Returns:
         dict: expenses_types
     """
 
-    expenses_types = menu_config.expense_type
+    expenses_types = menu_config.expense_type_menu
     return expenses_types

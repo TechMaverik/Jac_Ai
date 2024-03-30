@@ -11,10 +11,10 @@ def put_to_expenses_handler(expensesReq: ExpensesReq) -> bool:
     return expenses_services.put_to_expenses_service(expensesReq)
 
 
-def get_expenses_types() -> dict:
+def get_expenses_types() -> list:
     """Handler to get expenses types
 
     Returns:
-        dict: expense_types
+        list: expense_types
     """
     return expenses_services.get_expenses_types()
