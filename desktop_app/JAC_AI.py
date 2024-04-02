@@ -67,7 +67,6 @@ class Ui_Dialog(object):
         self.dateEdit = QtWidgets.QDateEdit(self.expense)
         self.dateEdit.setGeometry(QtCore.QRect(150, 210, 161, 22))
         self.dateEdit.setDateTime(QtCore.QDateTime.currentDateTime())
-
         self.dateEdit.setObjectName("dateEdit")
         self.tabWidget.addTab(self.expense, "")
         self.account = QtWidgets.QWidget()
@@ -141,9 +140,7 @@ class Ui_Dialog(object):
         self.pushButton_5 = QtWidgets.QPushButton(Dialog)
         self.pushButton_5.setGeometry(QtCore.QRect(180, 500, 160, 28))
         self.pushButton_5.setObjectName("pushButton_5")
-
         self.pushButton_5.clicked.connect(self.put_expense)
-
         self.retranslateUi(Dialog)
         self.tabWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -155,7 +152,6 @@ class Ui_Dialog(object):
         msg.setText(message)
         msg.setInformativeText(info_text)
         msg.setWindowTitle(title_name)
-        # msg.setDetailedText("The details are as follows:")
         msg.setStandardButtons(QMessageBox.Ok)
         msg.exec_()
 
@@ -174,6 +170,17 @@ class Ui_Dialog(object):
         if response.status_code == 200:
             self.show_information("Added", "Added Expense details", "Expense Details")
 
+    def put_accounts(self):
+        headers = {"content-type": "application/json"}
+        data = {
+            "account": self.lineEdit_5.text(),
+            "balance": self.lineEdit_4.text(),
+        }
+        url = "http://127.0.0.1:8000/accounts/add"
+        response = requests.put(url, data=json.dumps(data), headers=headers)
+        if response.status_code == 200:
+            self.show_information("Added", "Added Account details", "Account Details")
+
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "JAC AI"))
@@ -190,6 +197,7 @@ class Ui_Dialog(object):
         self.label_8.setText(_translate("Dialog", "Balance"))
         self.label_9.setText(_translate("Dialog", "Account"))
         self.pushButton.setText(_translate("Dialog", "Add Account"))
+        self.pushButton.clicked.connect(self.put_accounts)
         self.pushButton_2.setText(_translate("Dialog", "Delete Account"))
         self.textBrowser.setPlaceholderText(
             _translate("Dialog", "Connecting Cloud Service ...")
