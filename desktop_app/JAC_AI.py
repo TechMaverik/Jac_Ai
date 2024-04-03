@@ -5,11 +5,9 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMessageBox
 from Configurations import menu_config
 
-# sys.path.insert(0, "core-api\core_api")
 
-
-class Ui_Dialog(object):
-    def setupUi(self, Dialog):
+class JAC_AI(object):
+    def jac_ai(self, Dialog):
         Dialog.setObjectName("Dialog")
         Dialog.resize(418, 780)
         icon = QtGui.QIcon()
@@ -229,7 +227,7 @@ if __name__ == "__main__":
 
     app = QtWidgets.QApplication(sys.argv)
     Dialog = QtWidgets.QDialog()
-    ui = Ui_Dialog()
-    ui.setupUi(Dialog)
+    ui = JAC_AI()
+    ui.jac_ai(Dialog)
     Dialog.show()
     sys.exit(app.exec_())
