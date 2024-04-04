@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>418</width>
+    <width>427</width>
     <height>780</height>
    </rect>
   </property>
@@ -39,7 +39,7 @@
      <x>30</x>
      <y>240</y>
      <width>371</width>
-     <height>291</height>
+     <height>311</height>
     </rect>
    </property>
    <property name="currentIndex">
@@ -195,6 +195,19 @@
        <month>1</month>
        <day>1</day>
       </datetime>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_5">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>240</y>
+       <width>161</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Add Entry</string>
      </property>
     </widget>
    </widget>
@@ -427,7 +440,7 @@
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>540</y>
+     <y>560</y>
      <width>281</width>
      <height>22</height>
     </rect>
@@ -440,9 +453,9 @@
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>570</y>
+     <y>591</y>
      <width>371</width>
-     <height>192</height>
+     <height>171</height>
     </rect>
    </property>
   </widget>
@@ -450,7 +463,7 @@
    <property name="geometry">
     <rect>
      <x>320</x>
-     <y>540</y>
+     <y>560</y>
      <width>81</width>
      <height>28</height>
     </rect>

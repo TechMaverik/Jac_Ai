@@ -9,7 +9,7 @@ from Configurations import menu_config
 class JAC_AI(object):
     def jac_ai(self, Dialog):
         Dialog.setObjectName("Dialog")
-        Dialog.resize(418, 780)
+        Dialog.resize(427, 780)
         icon = QtGui.QIcon()
         icon.addPixmap(
             QtGui.QPixmap("Designs/JAC AI.jpg"), QtGui.QIcon.Normal, QtGui.QIcon.Off
@@ -21,7 +21,7 @@ class JAC_AI(object):
         self.label_2.setText("")
         self.label_2.setObjectName("label_2")
         self.tabWidget = QtWidgets.QTabWidget(Dialog)
-        self.tabWidget.setGeometry(QtCore.QRect(30, 240, 371, 291))
+        self.tabWidget.setGeometry(QtCore.QRect(30, 240, 371, 311))
         self.tabWidget.setObjectName("tabWidget")
         self.expense = QtWidgets.QWidget()
         self.expense.setObjectName("expense")
@@ -66,6 +66,9 @@ class JAC_AI(object):
         self.dateEdit.setGeometry(QtCore.QRect(150, 210, 161, 22))
         self.dateEdit.setDateTime(QtCore.QDateTime.currentDateTime())
         self.dateEdit.setObjectName("dateEdit")
+        self.pushButton_5 = QtWidgets.QPushButton(self.expense)
+        self.pushButton_5.setGeometry(QtCore.QRect(150, 240, 161, 31))
+        self.pushButton_5.setObjectName("pushButton_5")
         self.tabWidget.addTab(self.expense, "")
         self.account = QtWidgets.QWidget()
         self.account.setObjectName("account")
@@ -127,18 +130,18 @@ class JAC_AI(object):
         self.pushButton_4.setObjectName("pushButton_4")
         self.tabWidget.addTab(self.settings, "")
         self.lineEdit_6 = QtWidgets.QLineEdit(Dialog)
-        self.lineEdit_6.setGeometry(QtCore.QRect(30, 540, 281, 22))
+        self.lineEdit_6.setGeometry(QtCore.QRect(30, 560, 281, 22))
         self.lineEdit_6.setObjectName("lineEdit_6")
         self.textBrowser_2 = QtWidgets.QTextBrowser(Dialog)
-        self.textBrowser_2.setGeometry(QtCore.QRect(30, 570, 371, 192))
+        self.textBrowser_2.setGeometry(QtCore.QRect(30, 591, 371, 171))
         self.textBrowser_2.setObjectName("textBrowser_2")
         self.pushButton_3 = QtWidgets.QPushButton(Dialog)
-        self.pushButton_3.setGeometry(QtCore.QRect(320, 540, 81, 28))
+        self.pushButton_3.setGeometry(QtCore.QRect(320, 560, 81, 28))
         self.pushButton_3.setObjectName("pushButton_3")
-        self.pushButton_5 = QtWidgets.QPushButton(Dialog)
-        self.pushButton_5.setGeometry(QtCore.QRect(180, 500, 160, 28))
-        self.pushButton_5.setObjectName("pushButton_5")
+
         self.pushButton_5.clicked.connect(self.put_expense)
+        self.pushButton.clicked.connect(self.put_accounts)
+
         self.retranslateUi(Dialog)
         self.tabWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -188,6 +191,7 @@ class JAC_AI(object):
         self.label_6.setText(_translate("Dialog", "Account"))
         self.label_3.setText(_translate("Dialog", "Amount"))
         self.label_5.setText(_translate("Dialog", "Type"))
+        self.pushButton_5.setText(_translate("Dialog", "Add Entry"))
         self.tabWidget.setTabText(
             self.tabWidget.indexOf(self.expense),
             _translate("Dialog", "Expense Tracker"),
@@ -195,7 +199,6 @@ class JAC_AI(object):
         self.label_8.setText(_translate("Dialog", "Balance"))
         self.label_9.setText(_translate("Dialog", "Account"))
         self.pushButton.setText(_translate("Dialog", "Add Account"))
-        self.pushButton.clicked.connect(self.put_accounts)
         self.pushButton_2.setText(_translate("Dialog", "Delete Account"))
         self.textBrowser.setPlaceholderText(
             _translate("Dialog", "Connecting Cloud Service ...")
@@ -204,10 +207,10 @@ class JAC_AI(object):
             self.tabWidget.indexOf(self.account),
             _translate("Dialog", "Accounts Settings"),
         )
-        self.lineEdit_7.setText(menu_config.server_ip)
+        self.lineEdit_7.setPlaceholderText(_translate("Dialog", "127.0.0.1"))
         self.label_10.setText(_translate("Dialog", "Server IP"))
         self.label_11.setText(_translate("Dialog", "Port"))
-        self.lineEdit_8.setText(menu_config.server_port)
+        self.lineEdit_8.setPlaceholderText(_translate("Dialog", "8000"))
         self.label_12.setText(_translate("Dialog", "User"))
         self.lineEdit_9.setText(_translate("Dialog", "Akhil Jacob"))
         self.label_13.setText(_translate("Dialog", "Status"))
@@ -219,7 +222,6 @@ class JAC_AI(object):
             _translate("Dialog", "You can ask JAC AI for suggestions here")
         )
         self.pushButton_3.setText(_translate("Dialog", "Go"))
-        self.pushButton_5.setText(_translate("Dialog", "Add"))
 
 
 if __name__ == "__main__":
