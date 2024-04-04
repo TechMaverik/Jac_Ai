@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="LOGO">
+    <file>JAC AI.jpg</file>
+  </qresource>
+</RCC>

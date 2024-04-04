@@ -52,7 +52,7 @@ def put_to_expenses_service(expensesReq: ExpensesReq) -> bool:
         "date": expensesReq.date,
         "ID": create_id(),
     }
-    return expenses_mappers.put_to_expenses_mapper(item)
+    return expenses_mappers.put_to_expenses(item)
 
 
 def get_expenses_types() -> list:
