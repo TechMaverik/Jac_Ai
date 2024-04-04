@@ -27,3 +27,12 @@ def put_to_accounts(accountReq: AccoutDetailReq) -> bool:
         "balance": accountReq.balance,
     }
     return accounts_mappers.put_to_accounts(account_details)
+
+
+def get_account_details() -> list:
+    """Service to get account details
+
+    Returns:
+        list: Account details
+    """
+    return accounts_mappers.get_account_details()

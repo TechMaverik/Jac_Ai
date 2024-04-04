@@ -16,3 +16,19 @@ def put_to_expenses(item: dict) -> bool:
         return True
     else:
         return False
+
+
+def get_expenses() -> list:
+    """Mapper to return the expenses values from AWS
+
+    Returns:
+        list: Expenses
+    """
+    dynamodb = boto3.resource("dynamodb")
+    table = dynamodb.Table("Expenses")
+    response = table.scan()
+    expenses = response["Items"]
+    while "LastEvaluatedKey" in response:
+        response = table.scan(ExclusiveStartKey=response["LastEvaluatedKey"])
+        expenses.extend(response["Items"])
+    return expenses

@@ -11,3 +11,12 @@ def put_to_accounts(accountReq: AccoutDetailReq) -> bool:
         bool: status
     """
     return accounts_services.put_to_accounts(accountReq)
+
+
+def get_account_details() -> list:
+    """Handler to get account details
+
+    Returns:
+        list: Account details
+    """
+    return accounts_services.get_account_details()
