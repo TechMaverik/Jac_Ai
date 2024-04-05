@@ -3,7 +3,7 @@ from core_api.models.expenses import ExpensesReq
 
 
 def put_to_expenses_handler(expensesReq: ExpensesReq) -> bool:
-    """Handler to put expenses to AWS
+    """Handler to put expenses
 
     Returns:
         bool: status
@@ -18,3 +18,12 @@ def get_expenses_types() -> list:
         list: expense_types
     """
     return expenses_services.get_expenses_types()
+
+
+def get_expenses() -> list:
+    """Handler to return expenses
+
+    Returns:
+        list: Expenses
+    """
+    return expenses_services.get_expenses()

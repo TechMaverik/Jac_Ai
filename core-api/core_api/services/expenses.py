@@ -36,8 +36,7 @@ def is_consumer_bill(expense_type: str) -> bool:
 
 
 def put_to_expenses_service(expensesReq: ExpensesReq) -> bool:
-    """Service to put expenses to AWS
-
+    """Service to put expenses
     Returns:
         bool: status
     """
@@ -64,3 +63,12 @@ def get_expenses_types() -> list:
 
     expenses_types = menu_config.expense_type_menu
     return expenses_types
+
+
+def get_expenses() -> list:
+    """Service to return expenses
+
+    Returns:
+        list: Expenses
+    """
+    return expenses_mappers.get_expenses()

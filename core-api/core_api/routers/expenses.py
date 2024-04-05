@@ -24,3 +24,13 @@ def get_expenses_types() -> list:
         list: expense_types
     """
     return expense_handlers.get_expenses_types()
+
+
+@router.get("/all")
+def get_expenses() -> list:
+    """Router to return expenses
+
+    Returns:
+        list: Expenses
+    """
+    return expense_handlers.get_expenses()

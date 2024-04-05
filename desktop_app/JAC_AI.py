@@ -1,5 +1,6 @@
 """JAC_AI.py"""
 
+import ast
 import requests, json
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMessageBox
@@ -141,6 +142,7 @@ class JAC_AI(object):
 
         self.pushButton_5.clicked.connect(self.put_expense)
         self.pushButton.clicked.connect(self.put_accounts)
+        self.pushButton_3.clicked.connect(self.get_expense_details)
 
         self.retranslateUi(Dialog)
         self.tabWidget.setCurrentIndex(0)
@@ -181,6 +183,19 @@ class JAC_AI(object):
         response = requests.put(url, data=json.dumps(data), headers=headers)
         if response.status_code == 200:
             self.show_information("Added", "Added Account details", "Account Details")
+
+    def get_expense_details(self):
+        if self.lineEdit_6.text() == "":
+            url = "http://127.0.0.1:8000/expenses/all"
+            response_API = requests.get(url)
+            data = response_API.text
+            expenses = json.loads(data)
+            self.textBrowser_2.setText(str(expenses))
+            url = "http://127.0.0.1:8000/accounts/all"
+            response_API = requests.get(url)
+            data = response_API.text
+            accounts = json.loads(data)
+            self.textBrowser.setText(str(accounts))
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate

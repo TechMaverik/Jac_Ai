@@ -17,3 +17,13 @@ def put_to_accounts(accountDetailsReq: AccoutDetailReq) -> bool:
         bool: status
     """
     return accounts_handlers.put_to_accounts(accountDetailsReq)
+
+
+@router.get("/all")
+def get_account_details() -> list:
+    """Router to get account details
+
+    Returns:
+        list: Account details
+    """
+    return accounts_handlers.get_account_details()
