@@ -25,6 +25,7 @@ def put_to_accounts(accountReq: AccoutDetailReq) -> bool:
         "ID": create_id(),
         "account": accountReq.account,
         "balance": accountReq.balance,
+        "user": accountReq.user,
     }
     return accounts_mappers.put_to_accounts(account_details)
 

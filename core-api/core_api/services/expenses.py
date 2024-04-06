@@ -50,6 +50,7 @@ def put_to_expenses_service(expensesReq: ExpensesReq) -> bool:
         "is_consumer_bill": is_consumer_bill(expensesReq.expense_type),
         "date": expensesReq.date,
         "ID": create_id(),
+        "user": expensesReq.user,
     }
     return expenses_mappers.put_to_expenses(item)
 

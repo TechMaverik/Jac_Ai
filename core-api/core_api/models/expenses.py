@@ -23,3 +23,4 @@ class ExpensesReq(BaseModel):
     is_monthlyexpese: bool = Field(False)
     spend_to: str = Field(None)
     date: str = Field(None)
+    user: str

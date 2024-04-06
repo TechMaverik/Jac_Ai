@@ -14,3 +14,4 @@ class AccoutDetailReq(BaseModel):
 
     account: str
     balance: str
+    user: str
